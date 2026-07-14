@@ -46,7 +46,26 @@
     text-align: center;
     color: #5b6f7d;
     font-size: 17px;
+    margin: 0 0 28px;
+  }
+  .btn-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 0 48px;
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #3f7ea3;
+    background: rgba(255,255,255,.6);
+    border: 1px solid rgba(143,191,219,.28);
+    text-decoration: none;
   }
   h2 {
     font-family: 'Fraunces', serif;
@@ -172,8 +191,11 @@
   <div class="kicker-wrap">
     <span class="kicker">AI-платформа для гостиничного бизнеса</span>
   </div>
-  <h1 class="title">AI Hotelier</h1>
+  <h1 class="title">AI <span style="color:#4a91bd">Hotelier</span></h1>
   <p class="subtitle">Что мы предлагаем</p>
+  <div class="btn-row">
+    <a href="index.html" class="btn-secondary">← Назад на главную</a>
+  </div>
 
   <h2><span class="accent-line"></span>Что делает AI Hotelier</h2>
   <div class="points">
