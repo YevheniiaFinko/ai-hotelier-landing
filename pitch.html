@@ -184,80 +184,181 @@
     color: #8aa4b5;
     font-size: 13px;
   }
+  .lang-switch { display: flex; gap: 4px; justify-content: center; margin: 0 0 20px; }
+  .lang-switch button {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid rgba(143,191,219,.28);
+    background: transparent;
+    color: #8aa4b5;
+  }
+  .lang-switch button.active {
+    border-color: rgba(143,191,219,.6);
+    background: rgba(143,191,219,.28);
+    color: #0d2231;
+  }
 </style>
 </head>
 <body>
 
-  <div class="kicker-wrap">
-    <span class="kicker">AI-платформа для гостиничного бизнеса</span>
-  </div>
-  <h1 class="title">AI <span style="color:#4a91bd">Hotelier</span></h1>
-  <p class="subtitle">Что мы предлагаем</p>
-  <div class="btn-row">
-    <a href="index.html" class="btn-secondary">← Назад на главную</a>
+  <div class="lang-switch">
+    <button id="lang-ru" onclick="setLang('ru')">RU</button>
+    <button id="lang-en" onclick="setLang('en')">EN</button>
   </div>
 
-  <h2><span class="accent-line"></span>Что делает AI Hotelier</h2>
+  <div class="kicker-wrap">
+    <span class="kicker" id="t-kicker">AI-платформа для гостиничного бизнеса</span>
+  </div>
+  <h1 class="title">AI <span style="color:#4a91bd">Hotelier</span></h1>
+  <p class="subtitle" id="t-subtitle">Что мы предлагаем</p>
+  <div class="btn-row">
+    <a href="index.html" class="btn-secondary" id="t-back">← Назад на главную</a>
+  </div>
+
+  <h2><span class="accent-line"></span><span id="t-h-features">Что делает AI Hotelier</span></h2>
   <div class="points">
     <div class="point-card">
       <div class="point-num">1</div>
-      <div class="point-text"><b>Бронирования — одна картина вместо разрозненных календарей.</b><span>Система автоматически собирает бронирования с Airbnb и Booking.com по всем вашим объектам в единый календарь: кто заезжает, кто выезжает, какие места свободны. Видно сразу, не нужно вручную сверять несколько сайтов каждый день.</span></div>
+      <div class="point-text" id="t-point-1"><b>Бронирования — одна картина вместо разрозненных календарей.</b><span>Система автоматически собирает бронирования с Airbnb и Booking.com по всем вашим объектам в единый календарь: кто заезжает, кто выезжает, какие места свободны. Видно сразу, не нужно вручную сверять несколько сайтов каждый день.</span></div>
     </div>
     <div class="point-card">
       <div class="point-num">2</div>
-      <div class="point-text"><b>Уборка — организована и оплачена честно.</b><span>Когда гость выезжает, задача на уборку появляется автоматически и назначается сотруднику. Он отмечает выполнение в своём телефоне (чек-лист, фото-подтверждение) — система сама считает отработанные часы и готовую сумму к оплате, без ручных таблиц и подсчётов в конце месяца.</span></div>
+      <div class="point-text" id="t-point-2"><b>Уборка — организована и оплачена честно.</b><span>Когда гость выезжает, задача на уборку появляется автоматически и назначается сотруднику. Он отмечает выполнение в своём телефоне (чек-лист, фото-подтверждение) — система сама считает отработанные часы и готовую сумму к оплате, без ручных таблиц и подсчётов в конце месяца.</span></div>
     </div>
     <div class="point-card">
       <div class="point-num">3</div>
-      <div class="point-text"><b>Закупки — один список вместо разрозненных заявок.</b><span>Вместо того чтобы каждый объект отдельно сообщал «нужно то, нужно это» по своим каналам — все заявки стекаются в один список со статусами. Ничего не теряется и не дублируется.</span></div>
+      <div class="point-text" id="t-point-3"><b>Закупки — один список вместо разрозненных заявок.</b><span>Вместо того чтобы каждый объект отдельно сообщал «нужно то, нужно это» по своим каналам — все заявки стекаются в один список со статусами. Ничего не теряется и не дублируется.</span></div>
     </div>
     <div class="point-card">
       <div class="point-num">4</div>
-      <div class="point-text"><b>Гость получает ответы сразу — без человека на телефоне.</b><span>Путеводитель с инструкциями (как попасть внутрь, где что находится, правила проживания) доступен гостю сразу и автоматически. Не нужно, чтобы кто-то лично отвечал на одни и те же вопросы.</span></div>
+      <div class="point-text" id="t-point-4"><b>Гость получает ответы сразу — без человека на телефоне.</b><span>Путеводитель с инструкциями (как попасть внутрь, где что находится, правила проживания) доступен гостю сразу и автоматически. Не нужно, чтобы кто-то лично отвечал на одни и те же вопросы.</span></div>
     </div>
     <div class="point-card">
       <div class="point-num">5</div>
-      <div class="point-text"><b>Ежедневная сводка для владельца.</b><span>Каждый день — простой дайджест: кто заехал и выехал, что происходит на объектах, что нужно докупить, кто сейчас работает. Не нужно самому заходить в разные места, чтобы понять, как идут дела.</span></div>
+      <div class="point-text" id="t-point-5"><b>Ежедневная сводка для владельца.</b><span>Каждый день — простой дайджест: кто заехал и выехал, что происходит на объектах, что нужно докупить, кто сейчас работает. Не нужно самому заходить в разные места, чтобы понять, как идут дела.</span></div>
     </div>
     <div class="point-card">
       <div class="point-num">6</div>
-      <div class="point-text"><b>«Спросить что угодно».</b><span>Владелец или координатор может просто спросить систему обычным языком — например, сколько свободных мест на этой неделе — и получить ответ, без разбора таблиц вручную.</span></div>
+      <div class="point-text" id="t-point-6"><b>«Спросить что угодно».</b><span>Владелец или координатор может просто спросить систему обычным языком — например, сколько свободных мест на этой неделе — и получить ответ, без разбора таблиц вручную.</span></div>
     </div>
   </div>
 
-  <h2><span class="accent-line"></span>Что остаётся за человеком</h2>
-  <p class="body-text">
+  <h2><span class="accent-line"></span><span id="t-h-human">Что остаётся за человеком</span></h2>
+  <p class="body-text" id="t-human-body">
     Система берёт на себя рутину и постоянный мониторинг. За человеком остаётся то, что реально требует решения: разобраться со сложным или нестандартным случаем, быть на связи, если что-то пошло не так, убедиться, что всё в порядке. Не «весь контроль вручную», а точечное внимание именно там, где нужен человек.
   </p>
 
-  <h2><span class="accent-line"></span>Экономика — почему это выгоднее найма</h2>
+  <h2><span class="accent-line"></span><span id="t-h-econ">Экономика — почему это выгоднее найма</span></h2>
   <div class="econ-grid">
     <div class="econ-card">
-      <h3>Найм администратора</h3>
-      <div class="econ-row"><span>Зарплата</span><b>от €1 500–3 000/мес</b></div>
-      <div class="econ-row"><span>Налоги и отчисления</span><b>+20–35%</b></div>
-      <div class="econ-total">Итого: <span class="num">€1 800–4 000+/мес</span></div>
+      <h3 id="t-econ-hire-title">Найм администратора</h3>
+      <div class="econ-row"><span id="t-econ-salary-label">Зарплата</span><b id="t-econ-salary-val">от €1 500–3 000/мес</b></div>
+      <div class="econ-row"><span id="t-econ-tax-label">Налоги и отчисления</span><b>+20–35%</b></div>
+      <div class="econ-total"><span id="t-econ-total-1">Итого:</span> <span class="num" id="t-econ-total-1-val">€1 800–4 000+/мес</span></div>
     </div>
     <div class="econ-card accent">
       <h3>AI Hotelier</h3>
-      <div class="econ-row"><span>Подписка</span><b>€2 000/мес</b></div>
-      <div class="econ-row"><span>Найм / обучение / риск выгорания</span><b>—</b></div>
-      <div class="econ-total">Итого: <span class="num">€2 000/мес</span></div>
+      <div class="econ-row"><span id="t-econ-sub-label">Подписка</span><b id="t-econ-sub-val">€2 000/мес</b></div>
+      <div class="econ-row"><span id="t-econ-hire-risk-label">Найм / обучение / риск выгорания</span><b>—</b></div>
+      <div class="econ-total"><span id="t-econ-total-2">Итого:</span> <span class="num" id="t-econ-total-2-val">€2 000/мес</span></div>
     </div>
   </div>
 
-  <p class="body-text">
+  <p class="body-text" id="t-econ-body">
     AI Hotelier — заметно дешевле, чем держать администратора на полную ставку, и не требует времени и денег на поиск, найм и обучение нового человека с нуля — с риском, что он однажды выгорит или уйдёт, и всё придётся начинать заново.
   </p>
 
-  <div class="callout">
+  <div class="callout" id="t-callout">
     Для сравнения с рынком: у конкурентов даже узкий чат-бот только для общения с гостями (без уборки, закупок, дашборда) стоит <b>$100–300/мес за один объект</b>. Для сети из нескольких объектов и апартаментов это вышло бы дороже, чем единая подписка AI Hotelier, которая закрывает гостей + персонал + закупки + аналитику одной ценой.
   </div>
 
-  <h2><span class="accent-line"></span>Это уже работает</h2>
-  <p class="body-text">
+  <h2><span class="accent-line"></span><span id="t-h-proof">Это уже работает</span></h2>
+  <p class="body-text" id="t-proof-body">
     Система уже реально построена и работает — не идея на словах, а готовый рабочий инструмент с отдельным интерфейсом для трёх ролей (владелец, координатор, персонал по уборке), который можно показать и опробовать вживую, прежде чем что-либо решать.
   </p>
+
+<script>
+const TR = {
+  ru: {
+    't-kicker': 'AI-платформа для гостиничного бизнеса',
+    't-subtitle': 'Что мы предлагаем',
+    't-back': '← Назад на главную',
+    't-h-features': 'Что делает AI Hotelier',
+    't-point-1': '<b>Бронирования — одна картина вместо разрозненных календарей.</b><span>Система автоматически собирает бронирования с Airbnb и Booking.com по всем вашим объектам в единый календарь: кто заезжает, кто выезжает, какие места свободны. Видно сразу, не нужно вручную сверять несколько сайтов каждый день.</span>',
+    't-point-2': '<b>Уборка — организована и оплачена честно.</b><span>Когда гость выезжает, задача на уборку появляется автоматически и назначается сотруднику. Он отмечает выполнение в своём телефоне (чек-лист, фото-подтверждение) — система сама считает отработанные часы и готовую сумму к оплате, без ручных таблиц и подсчётов в конце месяца.</span>',
+    't-point-3': '<b>Закупки — один список вместо разрозненных заявок.</b><span>Вместо того чтобы каждый объект отдельно сообщал «нужно то, нужно это» по своим каналам — все заявки стекаются в один список со статусами. Ничего не теряется и не дублируется.</span>',
+    't-point-4': '<b>Гость получает ответы сразу — без человека на телефоне.</b><span>Путеводитель с инструкциями (как попасть внутрь, где что находится, правила проживания) доступен гостю сразу и автоматически. Не нужно, чтобы кто-то лично отвечал на одни и те же вопросы.</span>',
+    't-point-5': '<b>Ежедневная сводка для владельца.</b><span>Каждый день — простой дайджест: кто заехал и выехал, что происходит на объектах, что нужно докупить, кто сейчас работает. Не нужно самому заходить в разные места, чтобы понять, как идут дела.</span>',
+    't-point-6': '<b>«Спросить что угодно».</b><span>Владелец или координатор может просто спросить систему обычным языком — например, сколько свободных мест на этой неделе — и получить ответ, без разбора таблиц вручную.</span>',
+    't-h-human': 'Что остаётся за человеком',
+    't-human-body': 'Система берёт на себя рутину и постоянный мониторинг. За человеком остаётся то, что реально требует решения: разобраться со сложным или нестандартным случаем, быть на связи, если что-то пошло не так, убедиться, что всё в порядке. Не «весь контроль вручную», а точечное внимание именно там, где нужен человек.',
+    't-h-econ': 'Экономика — почему это выгоднее найма',
+    't-econ-hire-title': 'Найм администратора',
+    't-econ-salary-label': 'Зарплата',
+    't-econ-salary-val': 'от €1 500–3 000/мес',
+    't-econ-tax-label': 'Налоги и отчисления',
+    't-econ-total-1': 'Итого:',
+    't-econ-total-1-val': '€1 800–4 000+/мес',
+    't-econ-sub-label': 'Подписка',
+    't-econ-sub-val': '€2 000/мес',
+    't-econ-hire-risk-label': 'Найм / обучение / риск выгорания',
+    't-econ-total-2': 'Итого:',
+    't-econ-total-2-val': '€2 000/мес',
+    't-econ-body': 'AI Hotelier — заметно дешевле, чем держать администратора на полную ставку, и не требует времени и денег на поиск, найм и обучение нового человека с нуля — с риском, что он однажды выгорит или уйдёт, и всё придётся начинать заново.',
+    't-callout': 'Для сравнения с рынком: у конкурентов даже узкий чат-бот только для общения с гостями (без уборки, закупок, дашборда) стоит <b>$100–300/мес за один объект</b>. Для сети из нескольких объектов и апартаментов это вышло бы дороже, чем единая подписка AI Hotelier, которая закрывает гостей + персонал + закупки + аналитику одной ценой.',
+    't-h-proof': 'Это уже работает',
+    't-proof-body': 'Система уже реально построена и работает — не идея на словах, а готовый рабочий инструмент с отдельным интерфейсом для трёх ролей (владелец, координатор, персонал по уборке), который можно показать и опробовать вживую, прежде чем что-либо решать.',
+  },
+  en: {
+    't-kicker': 'AI platform for hospitality businesses',
+    't-subtitle': 'What we offer',
+    't-back': '← Back to home',
+    't-h-features': 'What AI Hotelier does',
+    't-point-1': '<b>Bookings — one picture instead of scattered calendars.</b><span>The system automatically pulls bookings from Airbnb and Booking.com across all your properties into a single calendar: who\'s checking in, who\'s checking out, which beds are free. Visible at a glance — no need to manually cross-check several sites every day.</span>',
+    't-point-2': '<b>Cleaning — organized and paid fairly.</b><span>When a guest checks out, a cleaning task appears automatically and gets assigned to a staff member. They mark it done on their phone (checklist, photo confirmation) — the system calculates hours worked and the amount owed on its own, no manual spreadsheets or month-end counting.</span>',
+    't-point-3': '<b>Procurement — one list instead of scattered requests.</b><span>Instead of every property separately reporting "we need this, we need that" through its own channel, all requests flow into a single list with statuses. Nothing gets lost or duplicated.</span>',
+    't-point-4': '<b>Guests get answers instantly — no one has to be on the phone.</b><span>A guidebook with instructions (how to get in, where things are, house rules) is available to the guest instantly and automatically. No one has to personally answer the same questions over and over.</span>',
+    't-point-5': '<b>A daily digest for the owner.</b><span>Every day, a simple digest: who checked in and out, what\'s happening at each property, what needs to be bought, who\'s working right now. No need to check several places yourself to see how things are going.</span>',
+    't-point-6': '<b>"Ask anything."</b><span>The owner or coordinator can just ask the system in plain language — for example, how many beds are free this week — and get an answer, without digging through spreadsheets by hand.</span>',
+    't-h-human': 'What stays with a human',
+    't-human-body': 'The system takes on the routine and constant monitoring. What stays with a human is what actually requires judgment: handling a complex or unusual case, being reachable if something goes wrong, making sure everything is in order. Not "full manual control" — targeted attention exactly where a human is needed.',
+    't-h-econ': 'The economics — why it\'s cheaper than hiring',
+    't-econ-hire-title': 'Hiring an administrator',
+    't-econ-salary-label': 'Salary',
+    't-econ-salary-val': 'from €1,500–3,000/mo',
+    't-econ-tax-label': 'Taxes and contributions',
+    't-econ-total-1': 'Total:',
+    't-econ-total-1-val': '€1,800–4,000+/mo',
+    't-econ-sub-label': 'Subscription',
+    't-econ-sub-val': '€2,000/mo',
+    't-econ-hire-risk-label': 'Hiring / training / burnout risk',
+    't-econ-total-2': 'Total:',
+    't-econ-total-2-val': '€2,000/mo',
+    't-econ-body': 'AI Hotelier is noticeably cheaper than keeping a full-time administrator on staff, and it doesn\'t take time or money to find, hire, and train a new person from scratch — with the risk that they eventually burn out or leave, and you have to start over.',
+    't-callout': 'For comparison: competitors\' narrow chatbots for guest communication alone (no cleaning, no procurement, no dashboard) cost <b>$100–300/mo per property</b>. For a network of several properties and apartments, that would end up costing more than a single AI Hotelier subscription that covers guests + staff + procurement + analytics for one price.',
+    't-h-proof': "It's already working",
+    't-proof-body': "The system is already built and running — not just an idea, but a working tool with a separate interface for three roles (owner, coordinator, cleaning staff) that can be shown and tried live before deciding anything.",
+  },
+};
+
+function setLang(lang) {
+  const dict = TR[lang];
+  Object.keys(dict).forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = dict[id];
+  });
+  document.documentElement.lang = lang;
+  document.getElementById('lang-ru').classList.toggle('active', lang === 'ru');
+  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('ai-hotelier-lang', lang); } catch (e) {}
+}
+
+setLang(localStorage.getItem('ai-hotelier-lang') === 'en' ? 'en' : 'ru');
+</script>
 
 </body>
 </html>
